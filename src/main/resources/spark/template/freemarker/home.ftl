@@ -12,7 +12,11 @@
 
 <div id="homePageActions">
     <#if !signin>
-        <#include "signin.ftl">
+        <form action="/signin" method="get">
+            <button>Sign In</button>
+        </form>
+        <#else>
+            <h2>Welcome Back!</h2>
     </#if>
 </div>
 </body>

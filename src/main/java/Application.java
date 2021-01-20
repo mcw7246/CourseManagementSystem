@@ -38,6 +38,8 @@ public class Application
     final TemplateEngine templateEngine = new FreeMarkerEngine();
     final UserManager userManager = new UserManager();
 
+    userManager.connect();
+
     final Gson gson = new Gson();
 
     final WebServer webServer = new WebServer(templateEngine, userManager);

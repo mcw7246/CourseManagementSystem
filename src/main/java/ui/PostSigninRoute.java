@@ -32,6 +32,9 @@ public class PostSigninRoute implements Route
 
     Map<String, Object> vm = new HashMap<>();
 
+    vm.put(TITLE_ATTR, "Signin");
+
+
     //retrieves what the user put in for the username and password fields
     final String username = request.queryParams(USERNAME_PARAM);
     final String password = request.queryParams(PASSWORD_PARAM);
@@ -44,8 +47,15 @@ public class PostSigninRoute implements Route
           //checks if the password matches what the database has
           if(userManager.passwordMatches(username, password)){
             //tells the program that an existing user is signed in
-            vm.replace(GetHomeRoute.SIGNIN_ATTR, true);
+            session.attribute(GetHomeRoute.SIGNIN_ATTR, true);
+            session.attribute(GetHomeRoute.USERNAME_ATTR, username);
+
+            response.redirect(WebServer.HOME_URL);
+            return "";
           }
+        }
+        else{
+          System.out.println("not found");
         }
       }catch(SQLException e){
         System.out.println(e.getMessage());

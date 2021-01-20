@@ -33,8 +33,12 @@ public class GetHomeRoute implements Route
 
     final Map<String, Object> vm = new HashMap<>();
     vm.put(TITLE_ATTR, TITLE);
-    vm.put(SIGNIN_ATTR, false);
-
+    if(session.attribute(SIGNIN_ATTR) == null){
+      session.attribute(SIGNIN_ATTR, false);
+    }
+    if(session.attribute(SIGNIN_ATTR)){
+      vm.put(SIGNIN_ATTR, true);
+    }
 
     return templateEngine.render(templateEngine.modelAndView(vm, VIEW_NAME));
   }
