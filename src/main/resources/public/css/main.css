@@ -1,8 +1,14 @@
+.signin{
+ outline: solid black;
+ padding: 10px;
+ border-radius: 50px;
+ display: inline-block;
+ text-align: center;
+ width: 85%;
+ margin-right: 7.5%;
+ margin-left: 7.5%;
+}
 #logo{
-   width: 100%;
-    float: none;
-    height: 100px;
-    background-color: pink;
-    align-items: center;
-    text-align: center;
+ text-align: center;
+ background-color: pink;
 }

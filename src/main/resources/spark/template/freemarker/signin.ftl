@@ -5,18 +5,18 @@
 </head>
 
 <body>
-<div id="logo">
-    <h1>${title}</h1>
-</div>
-
 <div class="signin">
     <form action="/signin" method="post">
-        <label>Username: </label>
-        <input type="text" name="username">
-
-        <label>Password: </label>
-        <input type="password" name="password">
-
+        <div class = "item">
+            <label>Username: </label>
+            <input type="text" name="username">
+        </div>
+        <br>
+        <div class = "item">
+            <label>Password: </label>
+            <input type="password" name="password">
+        </div>
+        <br>
         <button type="submit">Sign in</button>
     </form>
 

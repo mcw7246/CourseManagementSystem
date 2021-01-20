@@ -1,3 +1,4 @@
+import application.UserManager;
 import com.google.gson.Gson;
 import spark.TemplateEngine;
 import spark.template.freemarker.FreeMarkerEngine;
@@ -35,10 +36,11 @@ public class Application
     }
 
     final TemplateEngine templateEngine = new FreeMarkerEngine();
+    final UserManager userManager = new UserManager();
 
     final Gson gson = new Gson();
 
-    final WebServer webServer = new WebServer(templateEngine);
+    final WebServer webServer = new WebServer(templateEngine, userManager);
 
     final Application app = new Application(webServer);
     app.initialize();

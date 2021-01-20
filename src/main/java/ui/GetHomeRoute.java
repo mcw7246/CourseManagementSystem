@@ -16,6 +16,7 @@ public class GetHomeRoute implements Route
   //Attributes
   static final String TITLE_ATTR = "title";
   static final String SIGNIN_ATTR = "signin";
+  static final String USERNAME_ATTR = "username";
 
   static final String TITLE = "Course Management System";
   private final TemplateEngine templateEngine;

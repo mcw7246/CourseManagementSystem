@@ -1,5 +1,6 @@
 package ui;
 
+import application.UserManager;
 import spark.TemplateEngine;
 
 import java.util.Objects;
@@ -15,9 +16,12 @@ public class WebServer
   public static final String SIGNIN_URL = "/signin";
 
   private final TemplateEngine templateEngine;
+  private final UserManager userManager;
 
-  public WebServer(final TemplateEngine templateEngine){
+  public WebServer(final TemplateEngine templateEngine, final UserManager userManager){
     Objects.requireNonNull(templateEngine, "templateEngine must not be null.");
+    Objects.requireNonNull(userManager, "userManager must not be null.");
+    this.userManager = userManager;
     this.templateEngine = templateEngine;
   }
 
@@ -26,6 +30,6 @@ public class WebServer
 
     get(HOME_URL, new GetHomeRoute(templateEngine));
     get(SIGNIN_URL, new GetSignInRoute(templateEngine));
-    post(SIGNIN_URL, new PostSigninRoute(templateEngine));
+    post(SIGNIN_URL, new PostSigninRoute(templateEngine, userManager));
   }
 }

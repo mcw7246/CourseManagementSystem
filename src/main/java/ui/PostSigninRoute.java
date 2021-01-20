@@ -45,7 +45,6 @@ public class PostSigninRoute implements Route
           if(userManager.passwordMatches(username, password)){
             //tells the program that an existing user is signed in
             vm.replace(GetHomeRoute.SIGNIN_ATTR, true);
-
           }
         }
       }catch(SQLException e){
